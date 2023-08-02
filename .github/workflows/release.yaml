@@ -2,10 +2,8 @@
 # act --use-gitignore=false
 name: Release binaries
 
-on:
-  push:
-    tags:
-      - 'v*'
+on: workflow_dispatch
+
 jobs:
   build:
     name: Build and release binaries
@@ -30,7 +28,7 @@ jobs:
       - name: Set up JDK
         uses: actions/setup-java@v3
         with:
-          java-version: '17'
+          java-version: '11'
           distribution: 'adopt'
       - name: Setup Gradle
         uses: gradle/gradle-build-action@v2
